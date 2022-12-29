@@ -16,9 +16,21 @@ const Counter = () => {
   // react redux clears subscription if for some reason this element is removed from the dom completley
   const counter = useSelector((state) => state.counter);
 
+  //calling use selector to retireve data
+  //can be used multiple times
+
+  const show = useSelector((state) => state.showCounter);
+
   const incrementHandler = () => {
     dispatch({
       type: "increment",
+    });
+  };
+
+  const increaseHandler = () => {
+    dispatch({
+      type: "increase",
+      amount: 5,
     });
   };
   const decrementHandler = () => {
@@ -26,25 +38,34 @@ const Counter = () => {
       type: "decrement",
     });
   };
-  //   const toggleCounterHandler = () => {};
+  const toggleCounterHandler = () => {
+    dispatch({
+      type: "toggle",
+    });
+  };
 
   return (
     <div className="container-center">
       <div className="counter-container">
         <h1 className="title">redux counter</h1>
 
-        <p className="counter-value">{counter}</p>
+        {show && <p className="counter-value">{counter}</p>}
 
         <div className="btn-row">
           <button onClick={incrementHandler} className="btn">
             increment
+          </button>
+          <button onClick={increaseHandler} className="btn">
+            increment by 5
           </button>
           <button onClick={decrementHandler} className="btn">
             decrement
           </button>
         </div>
         <div className="container-center">
-          <button className="btn btn-outline">toggle visibility</button>
+          <button onClick={toggleCounterHandler} className="btn btn-outline">
+            toggle visibility
+          </button>
         </div>
       </div>
     </div>
