@@ -1,9 +1,15 @@
 import "./App.css";
 
-import { Counter } from "./container";
+import { Auth, Counter, Header } from "./container";
 
 function App() {
-  return <Counter />;
+  return (
+    <>
+      <Header />
+      <Auth />
+      <Counter />
+    </>
+  );
 }
 
 export default App;

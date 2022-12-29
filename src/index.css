@@ -13,16 +13,24 @@ Default: 1
 
 --- 02 COLORS
 
-- Primary: 
+- Primary:
+#ffa500
+
 - Tints: 
+#ffe4c4
+
+#ffefdc
+#ffefdc
 - Shades: 
 - Accents: 
 - Gray: 
 #555
 
 --- 05 SHADOWS
+box-shadow: inset 0 0 0 1px #ffefdc;
 
 --- 06 BORDER-RADIUS
+Default: 9px
 
 --- 07 WHITESPACE
 
