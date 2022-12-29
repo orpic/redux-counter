@@ -1,18 +1,22 @@
 import React from "react";
+import "./Counter.css";
 
 const Counter = () => {
   return (
-    <section className="counter">
-      <p className="title">redux counter</p>
-      <p className="counter-value">--counter value--</p>
+    <div className="container">
+      <div className="counter-container">
+        <h1 className="title">redux counter</h1>
+        <p className="counter-value">--counter value--</p>
 
-      <div className="btn-row">
-        <button className="btn">increment</button>
-        <button className="btn">decrement</button>
+        <div className="btn-row">
+          <button className="btn">increment</button>
+          <button className="btn">decrement</button>
+        </div>
+    <div className="container-center">
+                  <button className="btn btn-outline">toggle visibility</button>
+                  </div>
       </div>
-
-      <button className="btn">toggle visibility</button>
-    </section>
+    </div>
   );
 };
 

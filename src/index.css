@@ -51,4 +51,11 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
+  background-color: #ffe4c4;
+}
+
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
