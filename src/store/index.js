@@ -4,27 +4,43 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 //initial state
-const initialState = { counter: 0, showCounter: true };
+const initialCounterState = { counterValue: 0, showCounter: true };
+const initialAuthState = { isAuthenticated: false };
+
+//authentication slice
+
+const authSlice = createSlice({
+  name: "authentication",
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    },
+  },
+});
 
 // redux toolkit
 // could create different slices and in different files for maintainability
 //02
 const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialCounterState,
   reducers: {
     increment(state) {
       // we still must not mutate existing state
       // redux toolkit internally detects this code
       // clones exisitng state > create new state object >
       // keep non edited state > override the to be edited state
-      state.counter++;
+      state.counterValue++;
     },
     decrement(state) {
-      state.counter--;
+      state.counterValue--;
     },
     increase(state, action) {
-      state.counter = state.counter + action.payload;
+      state.counterValue = state.counterValue + action.payload;
     },
     toggleCounter(state) {
       state.showCounter = !state.showCounter;
@@ -38,16 +54,20 @@ const store = configureStore(
   // we set a reducer property
 
   {
-    reducer: counterSlice.reducer,
-    //multiple reducerF
-    // reducer: {
-    //     //key(property name of our choice) value(different reducer function)
-    //     //
-    //     counter: counterSlice.reducer
-    // }
+    //single reducer
+    // reducer: counterSlice.reducer,
+
+    //multiple reducers
+    reducer: {
+      //key(property name of our choice) value(different reducer function)
+
+      auth: authSlice.reducer,
+      counter: counterSlice.reducer,
+    },
   }
 );
 
+export const authActions = authSlice.actions;
 export const counterActions = counterSlice.actions;
 
 export default store;

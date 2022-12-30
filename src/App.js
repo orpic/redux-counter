@@ -1,12 +1,15 @@
 import "./App.css";
+import { Auth, Counter, Header, UserProfile } from "./container";
 
-import { Auth, Counter, Header } from "./container";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
   return (
     <>
       <Header />
-      <Auth />
+      {!isAuth && <Auth />}
+      {isAuth && <UserProfile />}
       <Counter />
     </>
   );

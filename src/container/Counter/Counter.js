@@ -16,12 +16,12 @@ const Counter = () => {
   // therfore component gets updated and recieves the latest counter automatically
   // whenever the data changes in redux store
   // react redux clears subscription if for some reason this element is removed from the dom completley
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counterValue);
 
   //calling use selector to retireve data
   //can be used multiple times
 
-  const show = useSelector((state) => state.showCounter);
+  const show = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());
@@ -40,7 +40,7 @@ const Counter = () => {
 
   return (
     <div className="container-center">
-      <div className="counter-container">
+      <div className="container-css">
         <h1 className="title">redux counter</h1>
 
         {show && <p className="counter-value">{counter}</p>}
