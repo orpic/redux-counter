@@ -1,52 +1,10 @@
 // import { createStore } from "redux";
 
 // redux toolkit
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
-//initial state
-const initialCounterState = { counterValue: 0, showCounter: true };
-const initialAuthState = { isAuthenticated: false };
-
-//authentication slice
-
-const authSlice = createSlice({
-  name: "authentication",
-  initialState: initialAuthState,
-  reducers: {
-    login(state) {
-      state.isAuthenticated = true;
-    },
-    logout(state) {
-      state.isAuthenticated = false;
-    },
-  },
-});
-
-// redux toolkit
-// could create different slices and in different files for maintainability
-//02
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: initialCounterState,
-  reducers: {
-    increment(state) {
-      // we still must not mutate existing state
-      // redux toolkit internally detects this code
-      // clones exisitng state > create new state object >
-      // keep non edited state > override the to be edited state
-      state.counterValue++;
-    },
-    decrement(state) {
-      state.counterValue--;
-    },
-    increase(state, action) {
-      state.counterValue = state.counterValue + action.payload;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
-  },
-});
+import counterReducer from "./counterSlice";
+import authReducer from "./authSlice";
 
 //01
 const store = configureStore(
@@ -61,14 +19,11 @@ const store = configureStore(
     reducer: {
       //key(property name of our choice) value(different reducer function)
 
-      auth: authSlice.reducer,
-      counter: counterSlice.reducer,
+      auth: authReducer,
+      counter: counterReducer,
     },
   }
 );
-
-export const authActions = authSlice.actions;
-export const counterActions = counterSlice.actions;
 
 export default store;
 
