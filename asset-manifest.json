@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/orpic.github.io/redux-counter/static/css/main.51c2906c.css",
+    "main.js": "/orpic.github.io/redux-counter/static/js/main.8473fd16.js",
+    "static/js/787.c6e21bd1.chunk.js": "/orpic.github.io/redux-counter/static/js/787.c6e21bd1.chunk.js",
+    "index.html": "/orpic.github.io/redux-counter/index.html",
+    "main.51c2906c.css.map": "/orpic.github.io/redux-counter/static/css/main.51c2906c.css.map",
+    "main.8473fd16.js.map": "/orpic.github.io/redux-counter/static/js/main.8473fd16.js.map",
+    "787.c6e21bd1.chunk.js.map": "/orpic.github.io/redux-counter/static/js/787.c6e21bd1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51c2906c.css",
+    "static/js/main.8473fd16.js"
+  ]
+}
